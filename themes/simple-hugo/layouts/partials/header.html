@@ -1,0 +1,36 @@
+<header class="bg-dark">
+  <div class="container">
+    <div class="py-4 mb-5">
+      <div class="container">
+        <img class="logo m-auto d-block" width="96" heigth="96" src="/images/logo.png" alt="Site Logo" />
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <a class="navbar-brand" href="/">HugoSimple</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        {{ range $index, $page := sort (where .Site.AllPages "Params.mainmenu.include" true ) "Params.mainmenu.order" }}
+        <li
+          class="nav-item {{ if eq $.Page.RelPermalink $page.RelPermalink }}active{{end}}"
+        >
+          <a class="nav-link" href="{{ $page.RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,8 @@
+baseURL: "http://example.org/"
+languageCode: "pt-BR"
+title: "Simple Hugo"
+theme: simple-hugo
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
